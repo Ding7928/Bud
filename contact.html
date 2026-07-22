@@ -203,13 +203,35 @@ footer a{ text-decoration:none; color:inherit; }
   <h2>Let&rsquo;s document your story</h2>
   <p class="sub">Tell us a little about your family and the moment you want to hold on to. We&rsquo;ll follow up to find a golden hour that works for you.</p>
   <p class="contact-email"><a href="mailto:Budphotoart@gmail.com">Budphotoart@gmail.com</a></p>
-  <form class="inquiry" onsubmit="return false;">
+  <form
+    class="inquiry"
+    action="https://formspree.io/f/xkodvvop"
+    method="POST">
+
     <div class="form-row">
-      <div><label for="name">Name</label><input id="name" type="text" placeholder="Your name" required></div>
-      <div><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com" required></div>
+      <div><label for="name">Name</label><input
+    id="name"
+    name="name"
+    type="text"
+    placeholder="Your name"
+    required></div>
+      <div><label for="email">Email</label><input
+    id="email"
+    name="email"
+    type="email"
+    placeholder="you@email.com"
+    required></div>
     </div>
-    <div><label for="date">Preferred timeframe</label><input id="date" type="text" placeholder="e.g. mid-October, evenings"></div>
-    <div><label for="message">Tell us about your family</label><textarea id="message" placeholder="Who's in the session, and what matters most to you about these photos?"></textarea></div>
+    <div><label for="date">Preferred timeframe</label><input
+    id="date"
+    name="timeframe"
+    type="text"
+    placeholder="e.g. mid-October, evenings"></div>
+    <div><label for="message">Tell us about your family</label><textarea
+    id="message"
+    name="message"
+    placeholder="Who's in the session, and what matters most to you about these photos?"
+    required></textarea></div>
     <button class="submit-btn" type="submit">Send inquiry</button>
   </form>
 </section>
