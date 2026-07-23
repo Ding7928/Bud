@@ -1,5 +1,26 @@
 const nav = document.getElementById('nav');
 const hero = document.getElementById('hero');
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.textContent = isOpen ? '✕' : '☰';
+  menuToggle.setAttribute('aria-expanded', isOpen);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.textContent = '☰';
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+
+
+
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function lerp(a,b,t){ return a + (b-a)*t; }
