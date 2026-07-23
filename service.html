@@ -71,7 +71,51 @@ nav.scrolled{
 }
 .nav-links a:hover, .nav-links a:focus-visible{ color:var(--kaki); border-color:var(--kaki); outline:none; }
 .nav-links a.active{ color:var(--kaki); border-color:var(--kaki); }
-@media (max-width:720px){ .nav-links{ display:none; } }
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:1.8rem;
+    color:var(--ink);
+    cursor:pointer;
+    padding:0;
+}
+
+@media (max-width:720px){
+
+    .menu-toggle{
+        display:block;
+        z-index:1001;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:240px;
+        height:100vh;
+
+        background:rgba(245,239,225,.98);
+        backdrop-filter:blur(12px);
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:2rem;
+
+        transition:right .35s ease;
+        box-shadow:-4px 0 20px rgba(0,0,0,.08);
+    }
+
+    .nav-links.open{
+        right:0;
+    }
+
+    .nav-links a{
+        font-size:.9rem;
+    }
+}
 
 /* ---------- HERO (home page only) ---------- */
 .hero{ height:220vh; position:relative; }
@@ -189,7 +233,16 @@ footer a{ text-decoration:none; color:inherit; }
     <span class="mark">Bud</span>
     <span class="sub">Photograph &amp; Art</span>
   </a>
-  <div class="nav-links">
+  <button
+  id="menuToggle"
+  class="menu-toggle"
+  aria-label="Menu"
+  aria-expanded="false"
+  aria-controls="navLinks">
+  ☰
+  </button>
+
+  <div class="nav-links" id="navLinks">
     <a href="service.html" class="active">Service</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
@@ -238,6 +291,28 @@ footer a{ text-decoration:none; color:inherit; }
 <script>
 const nav = document.getElementById('nav');
 const hero = document.getElementById('hero');
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.textContent = '☰';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+}
+
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function lerp(a,b,t){ return a + (b-a)*t; }
