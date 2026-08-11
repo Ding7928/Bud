@@ -120,7 +120,7 @@ nav.scrolled{
 }
 
 /* ---------- HERO (home page only) ---------- */
-.hero{ height:220vh; position:relative; }
+.hero{ height:140vh; position:relative; }
 .hero-sticky{ position:sticky; top:0; height:100vh; overflow:hidden; background:var(--washi); }
 .hero-scene{ position:absolute; inset:0; }
 .ridge{ position:absolute; bottom:0; left:0; width:100%; }
@@ -146,6 +146,37 @@ nav.scrolled{
 .story .story-copy{ font-size:1.02rem; line-height:1.9; color:var(--ink-soft); max-width:36rem; }
 .story .story-copy + .story-copy{ margin-top:1.4rem; }
 @media (max-width:840px){ .story{ grid-template-columns:1fr; gap:2rem; } .story .story-head{ position:static; } }
+
+/* ---------- HOME PHOTO STRIP ---------- */
+.photo-strip{
+  padding:0 clamp(1.25rem, 6vw, 4.5rem) 6rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  border-top:1px solid var(--line);
+}
+.photo-strip img{
+  width:100%; display:block;
+  border-radius:2px;
+  box-shadow:0 2px 8px rgba(58,44,31,0.1);
+  object-fit:cover;
+  aspect-ratio:4/5;
+}
+.photo-strip-footer{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:flex-end;
+  padding-top:0.5rem;
+}
+.photo-strip-footer a{
+  font-family:var(--sans); font-weight:500; font-size:0.72rem;
+  letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--kaki); text-decoration:none;
+  border-bottom:1px solid var(--kaki-soft); padding-bottom:2px;
+  transition:color 0.3s ease, border-color 0.3s ease;
+}
+.photo-strip-footer a:hover{ color:var(--ink); border-color:var(--ink); }
+@media (max-width:600px){ .photo-strip{ grid-template-columns:1fr; } }
 
 /* ---------- SERVICE page ---------- */
 .expect-head{ max-width:38rem; margin:0 0 3.5rem; }
@@ -300,6 +331,14 @@ footer a{ text-decoration:none; color:inherit; }
     <p class="story-copy">Our goal is simple: to create images that feel warm, genuine, and timeless — photos that bring your family closer every time you look at them.</p>
   </div>
 </section>
+
+<div class="photo-strip">
+  <img src="image/I1.jpg" alt="Austin family portrait session at golden hour">
+  <img src="image/I2.jpg" alt="Austin family portrait session at golden hour">
+  <div class="photo-strip-footer">
+    <a href="gallery.html">View all work &rarr;</a>
+  </div>
+</div>
 
 <footer>
   <span>&copy; 2026 Bud Photograph &amp; Art — Austin, Texas</span>
