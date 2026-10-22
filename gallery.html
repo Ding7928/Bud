@@ -171,14 +171,16 @@ nav.scrolled{
 @media (max-width:720px){ .loc-list li .note{ display:none; } }
 
 /* ---------- GALLERY page ---------- */
-.gallery-grid{ column-count:3; column-gap:1.5rem; }
-.gallery-grid img{
-  width:100%; display:block; margin-bottom:1.5rem;
-  border-radius:2px; break-inside:avoid;
+.gallery-groups{ display:flex; flex-direction:column; gap:2.5rem; }
+.photo-row{ display:flex; flex-wrap:wrap; gap:1.5rem; }
+.photo-row img{
+  flex:1 1 240px; width:100%; max-width:360px; aspect-ratio:4/5;
+  object-fit:cover; display:block;
+  border-radius:2px;
   box-shadow:0 1px 2px rgba(58,44,31,0.08);
 }
 .gallery-tile{
-  aspect-ratio:4/5; border-radius:2px; break-inside:avoid; margin-bottom:1.5rem;
+  aspect-ratio:4/5; border-radius:2px; margin-bottom:1.5rem;
   background:
     radial-gradient(circle at 30% 20%, rgba(239,192,138,0.65), transparent 60%),
     linear-gradient(160deg, var(--washi-warm), var(--washi-glow));
@@ -187,8 +189,7 @@ nav.scrolled{
   text-align:center; padding:1rem;
 }
 .gallery-tile span{ font-family:var(--sans); font-weight:400; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); }
-@media (max-width:760px){ .gallery-grid{ column-count:2; } }
-@media (max-width:480px){ .gallery-grid{ column-count:1; } }
+@media (max-width:480px){ .photo-row img{ flex-basis:100%; max-width:none; } }
 
 /* ---------- CONTACT page ---------- */
 .cta{ background:linear-gradient(180deg, var(--washi-warm) 0%, var(--washi-glow) 100%); color:var(--ink); text-align:center; }
@@ -265,24 +266,31 @@ footer a{ text-decoration:none; color:inherit; }
     <h2>From recent sessions</h2>
     <p>A few frames from families we&rsquo;ve had the pleasure of documenting. We&rsquo;ll fill this in with real session photos as they&rsquo;re delivered.</p>
   </div>
-  <div class="gallery-grid">
-    <img src="image/Susan2.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Susan4.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Susan5.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Susan7.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Susan8.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/I3.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/I5.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/I6.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/I8.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Luo1.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Luo2.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Luo3.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Luo4.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Pumpkin1.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Pumpkin2.jpg" alt="Family portrait, Austin golden hour session">
-    <img src="image/Pumpkin3.jpg" alt="Family portrait, Austin golden hour session">
-
+  <div class="gallery-groups">
+    <div class="photo-row">
+      <img src="image/Susan2.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Susan4.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Susan5.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Susan7.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Susan8.jpg" alt="Family portrait, Austin golden hour session">
+    </div>
+    <div class="photo-row">
+      <img src="image/I3.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/I5.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/I6.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/I8.jpg" alt="Family portrait, Austin golden hour session">
+    </div>
+    <div class="photo-row">
+      <img src="image/Luo1.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Luo2.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Luo3.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Luo4.jpg" alt="Family portrait, Austin golden hour session">
+    </div>
+    <div class="photo-row">
+      <img src="image/Pumpkin1.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Pumpkin2.jpg" alt="Family portrait, Austin golden hour session">
+      <img src="image/Pumpkin3.jpg" alt="Family portrait, Austin golden hour session">
+    </div>
   </div>
 </section>
 
